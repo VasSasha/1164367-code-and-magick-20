@@ -184,7 +184,9 @@
   var fireBallSize = 22;
   var wizardWidth = 70;
   var wizardSpeed = 1;
-  var wizardHeight = 1.337 * wizardWidth;
+  var wizardHeight = function(wizardWidth){
+      return 1.337 * wizardWidth;
+  }
   var getFireballSpeed = function(isWindFromLeft){
     if(isWindFromLeft){
       return 5;
@@ -196,7 +198,7 @@
     return (gameFieldWidth - wizardWidth) /2 ;
   }
   var getWizardY = function(gameFieldHeight){
-    return  gameFieldHeight/ 3;
+    return gameFieldHeight/ 3;
   }
 </script>
 <script src="js/game.js"></script>
