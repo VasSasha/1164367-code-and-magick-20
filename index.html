@@ -23,7 +23,7 @@
         <polygon points="9 37 19 37 19 23 48 23 48 28 53 28 53 42 48 42 48 51 14 51 14 46 9 46 9 37"
                  fill="#fbd868"/>
         <rect x="33" y="39" width="10" height="5" fill="#bec1c3"/>
-        <rect x="14" y="37" width="5" height="9" fill="#bec1c3"/>
+        <rect  x="14" y="37" width="5" height="9" fill="#bec1c3"/>
         <polygon
           points="48 39 48 44.34 43 44.34 43 49.69 33 49.69 33 44.34 29 44.34 29 48.62 23 48.62 23 53.97 29 53.97 29 59.31 33 59.31 33 64.66 38 64.66 38 70 43 70 43 64.66 48 64.66 48 53.97 53 53.97 53 48.62 57 48.62 57 39 48 39"
           fill="#bec1c3"/>
@@ -180,7 +180,25 @@
     <p class="setup-similar-label">Петр Петров</p>
   </div>
 </template>
-
+<script type="">
+  var fireBallSize = 22;
+  var wizardWidth = 70;
+  var wizardSpeed = 1;
+  var wizardHeight = 1.337 * wizardWidth;
+  var getFireballSpeed = function(isWindFromLeft){
+    if(isWindFromLeft){
+      return 5;
+    } else {
+      return 2;
+    }
+  }
+  var getWizardX = function(gameFieldWidth){
+    return (gameFieldWidth - wizardWidth) /2 ;
+  }
+  var getWizardY = function(gameFieldHeight){
+    return  gameFieldHeight/ 3;
+  }
+</script>
 <script src="js/game.js"></script>
 
 </body>
