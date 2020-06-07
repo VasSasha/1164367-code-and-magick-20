@@ -28,14 +28,15 @@ window.renderStatistics = function(ctx,players,times){
 	ctx.textBaseline='hanging';
 	ctx.font='16px Mono';
 	ctx.fillStyle = '#000';
-	ctx.fillText('Ура вы победили!',CLOUD_X + GAP*3,CLOUD_Y+ GAP);
-	ctx.fillText('Список результатов:',CLOUD_X + GAP*3,CLOUD_Y + GAP + FONT_GAP);
+	ctx.fillText('Ура вы победили!',CLOUD_X + 35,CLOUD_Y+ 12);
+	ctx.fillText('Список результатов:',CLOUD_X + 35,CLOUD_Y + 12 + FONT_GAP);
 	var maxTime = getMaxElement(times);
 	for(var i = 0; i< players.length; i++){
 		if(players[i] === 'Вы'){
 		ctx.fillStyle = 'rgba(255, 0, 0, 1)';
 	}else{
-		ctx.fillStyle = 'rgb(64,83,145)';
+		var X = Math.Random()*100;
+		ctx.fillStyle = 'hsl(240,X%, 50%)';
 	}
 		ctx.fillRect(CLOUD_X + GAP +(BAR_GAP+ TEXT_WIDTH)* i, CLOUD_Y +TEXT_HEIGHT*2 + 3*GAP, BAR_WIDTH,(barHeight*times[i])/maxTime);
 		ctx.fillStyle = '#000';
