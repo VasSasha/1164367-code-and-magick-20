@@ -35,8 +35,8 @@ window.renderStatistics = function(ctx,players,times){
 		if(players[i] === 'Вы'){
 		ctx.fillStyle = 'rgba(255, 0, 0, 1)';
 	}else{
-		var X = Math.Random()*100;
-		ctx.fillStyle = 'hsl(240,X%, 50%)';
+		var X = Math.random()*100;
+		ctx.fillStyle = 'hsl(240,'+X+'%, 50%)';
 	}
 		ctx.fillRect(CLOUD_X + GAP +(BAR_GAP+ TEXT_WIDTH)* i, CLOUD_Y +TEXT_HEIGHT*2 + 3*GAP, BAR_WIDTH,(barHeight*times[i])/maxTime);
 		ctx.fillStyle = '#000';
