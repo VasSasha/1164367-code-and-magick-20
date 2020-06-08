@@ -7,7 +7,7 @@ var FONT_GAP = 16;
 var TEXT_WIDTH = 50;
 var BAR_WIDTH = 40;
 var BAR_GAP = 50;
-var maxBarHeight = 150;
+var MAX_BAR_HEIGHT = 150;
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
@@ -36,7 +36,7 @@ window.renderStatistics = function (ctx, players, times) {
       var X = Math.random() * 100;
       ctx.fillStyle = 'hsl(240,' + X + '%, 50%)';
     }
-    ctx.fillRect(CLOUD_X + BAR_GAP + (BAR_GAP + TEXT_WIDTH) * i, CLOUD_Y + FONT_GAP * 2 + 30 + maxBarHeight - (maxBarHeight * times[i]) / maxTime, BAR_WIDTH, (maxBarHeight * times[i]) / maxTime);
+    ctx.fillRect(CLOUD_X + BAR_GAP + (BAR_GAP + TEXT_WIDTH) * i, CLOUD_Y + FONT_GAP * 2 + 30 + MAX_BAR_HEIGHT - (MAX_BAR_HEIGHT * times[i]) / maxTime, BAR_WIDTH, (MAX_BAR_HEIGHT * times[i]) / maxTime);
     ctx.fillStyle = '#000';
     ctx.fillText(players[i], CLOUD_X + BAR_GAP + (BAR_GAP + TEXT_WIDTH) * i, CLOUD_HEIGHT - 10 - FONT_GAP);
   }
