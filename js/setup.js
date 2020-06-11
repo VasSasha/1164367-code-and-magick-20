@@ -8,10 +8,12 @@ var COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)
 var EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
 var getRandomIndex = function(arr) {
     var index = Math.floor(Math.random() * arr.length);
-    return index;
+    return arr[index];
 };
 var renderPlayer = function() {
     var player = new Object {
-        name: NAMES[getRandomIndex(NAMES)] + SECOND_NAMES[getRandomIndex(SECOND_NAMES)],
+        name: getRandomIndex(NAMES) + getRandomIndex(SECOND_NAMES),
+        eyesColor: getRandomIndex(EYES_COLOR),
+        coatColor: getRandomIndex(COAT_COLOR)
     };
 };
