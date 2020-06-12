@@ -22,12 +22,13 @@ var players = []
 for (var i = 0; i <= 4; i++) {
     players.push(createPlayer());
 }
-var renderPlayers = function () {
+var similarListElement = document.querySelector('.setup-similar-list');
+var renderPlayers = document.createDocumentFragment () {
    for (var i = 0; i < 4; i++) {
     var player = similiarWizardTemplate.cloneNode(true);
-    similiarLastElement.appendChild(player);
+    similarListElement.appendChild(player);
     player.querySelector('.setup-similar-label').textContent = NAMES[i] + SECOND_NAMES[i];
     player.querySelector('.wizard-coat').style.fill = COATS_COLORS[i];
     player.querySelector('.wizard-eyes').style.fill = EYES_COLORS[i];
- } return player;
+ }
 }
