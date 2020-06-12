@@ -26,11 +26,11 @@ var renderPlayers = function () {
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
   var similarListElement = document.querySelector('.setup-similar-list');
   for (var i = 0; i < 4; i++) {
-    players = similarWizardTemplate.cloneNode(true);
-    players.querySelector('.setup-similar-label').textContent = NAMES[i] + SECOND_NAMES[i];
-    players.querySelector('.wizard-coat').style.fill = COATS_COLORS[i];
-    players.querySelector('.wizard-eyes').style.fill = EYES_COLORS[i];
-    fragment.appendChild(players);
+    var newPlayer = similarWizardTemplate.cloneNode(true);
+    newPlayer.querySelector('.setup-similar-label').textContent = players[i].name;
+    newPlayer.querySelector('.wizard-coat').style.fill = players[i].coatColor;
+    newPlayer.querySelector('.wizard-eyes').style.fill = players[i].eyesColor;
+    fragment.appendChild(newPlayer);
   }
   similarListElement.appendChild(fragment);
 };
