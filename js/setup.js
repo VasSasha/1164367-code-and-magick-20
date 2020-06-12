@@ -1,5 +1,4 @@
 'use strict';
-var similiarWizardTemplate = document.querySelector('#similar-wizard-template').content;
 var setup = document.querySelector('.setup');
 setup.classList.remove('hidden');
 var NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
@@ -22,13 +21,18 @@ var players = []
 for (var i = 0; i < 4; i++) {
     players.push(createPlayer());
 }
+var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
 var similarListElement = document.querySelector('.setup-similar-list');
-var renderPlayers = document.createDocumentFragment () {
-   for (var i = 0; i < 4; i++) {
-    similarListElement.appendChild(player);
-    player.querySelector('.setup-similar-label').textContent = NAMES[i] + SECOND_NAMES[i];
-    player.querySelector('.wizard-coat').style.fill = COATS_COLORS[i];
-    player.querySelector('.wizard-eyes').style.fill = EYES_COLORS[i];
+var renderPlayers = function () {
+    var fragment = document.createDocumentFrangment() {
+        for (var i = 0; i < 4 ; i++) {
+          var newPlayer = similarWizardTemplate.cloneNode(true);
+          newPlayer.querySelector('.setup-similar-label').textContent = NAMES[i] + SECOND_NAMES[i];
+          newPlayer.querySelector('.wizard-coat').style.fill = COATS_COLORS[i];
+          newPlayer.querySelector('.wizard-eyes').style.fill = EYES_COLORS[i];
+          fragment.appendChild(newPlayer);
+   }
  }
+ similarListElement.appendChild(fragment);
 }
 
