@@ -19,16 +19,16 @@ var createPlayer = function() {
     return player;
 };
 var players = []
-for (var i = 0; i <= 4; i++) {
+for (var i = 0; i < 4; i++) {
     players.push(createPlayer());
 }
 var similarListElement = document.querySelector('.setup-similar-list');
 var renderPlayers = document.createDocumentFragment () {
    for (var i = 0; i < 4; i++) {
-    var player = similiarWizardTemplate.cloneNode(true);
     similarListElement.appendChild(player);
     player.querySelector('.setup-similar-label').textContent = NAMES[i] + SECOND_NAMES[i];
     player.querySelector('.wizard-coat').style.fill = COATS_COLORS[i];
     player.querySelector('.wizard-eyes').style.fill = EYES_COLORS[i];
  }
 }
+
