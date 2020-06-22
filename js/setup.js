@@ -47,16 +47,6 @@ var fireBallColorValue = document.querySelector('fireball-color-input');
 var coatsColorValue = document.querySelector('coats-color-input');
 var eyesColorValue = document.querySelector('eyes-color-input');
 var setupPlayer = document.querySelector('setup-player');
-// открывает и закрывает диалоговое окно
-var openPopUp = function () {
-  setup.classList.remove('hidden');
-  document.addEventListener('keydown', onPopUpPress());
-  document.addEventListener('click', onPopUpPress());
-};
-var closePopUp = function () {
-  setup.classList.add('hidden');
-  document.removeEventListener('keydown', 'click', onPopUpPress());
-};
 var onPopUpPress = function (evt) {
   evt.preventDefault();
   if (evt.key === 'Escape') {
@@ -65,18 +55,29 @@ var onPopUpPress = function (evt) {
     openPopUp();
   }
 };
+// открывает и закрывает диалоговое окно
+var openPopUp = function () {
+  setup.classList.remove('hidden');
+  document.addEventListener('keydown', onPopUpPress);
+  document.addEventListener('click', onPopUpPress);
+};
+var closePopUp = function () {
+  setup.classList.add('hidden');
+  document.removeEventListener('keydown', onPopUpPress);
+  document.removeEventListener('click', onPopUpPress);
+};
 setupOpen.addEventListener('click', function () {
   openPopUp();
 });
 setupClose.addEventListener('click', function () {
   closePopUp();
 });
-setupOpen.addEventListener('keydown', function () {
+setupOpen.addEventListener('keydown', function (evt) {
   if (evt.key === 'Enter') {
     openPopUp();
   }
 });
-setupClose.addEventListener('keydown', function () {
+setupClose.addEventListener('keydown', function (evt) {
   if (evt.key === 'Escape') {
     closePopUp();
   }
