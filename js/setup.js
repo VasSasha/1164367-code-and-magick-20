@@ -21,7 +21,7 @@ var createPlayer = function () {
 var players = [];
 for (var i = 0; i < 4; i++) {
   players.push(createPlayer());
-} 
+}
 var renderPlayers = function () {
   var fragment = document.createDocumentFragment();
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
@@ -39,7 +39,7 @@ renderPlayers();
 var setupSimilar = document.querySelector('.setup-similar');
 setupSimilar.classList.remove('hidden');
 var setupOpen = setup.querySelector('.setup-open');
-var stupClose = setup.querySelector('.setup-close');
+var setupClose = setup.querySelector('.setup-close');
 var userIcon = document.querySelector('.setup-open-icon');
 var form = setup.querySelector('.setup-wizard-form');
 var blockForCoat = document.querySelector('.setup-wizard');
@@ -47,7 +47,7 @@ var fireBallColorValue = document.querySelector('fireball-color-input');
 var coatsColorValue = document.querySelector('coats-color-input');
 var eyesColorValue = document.querySelector('eyes-color-input');
 var setupPlayer = document.querySelector('setup-player');
-//открывает и закрывает диалоговое окно
+// открывает и закрывает диалоговое окно
 var openPopUp = function () {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopUpPress());
@@ -55,7 +55,7 @@ var openPopUp = function () {
 };
 var closePopUp = function () {
   setup.classList.add('hidden');
-  document.removeEventListener('keydown','click', onPopUpPress());
+  document.removeEventListener('keydown', 'click', onPopUpPress());
 };
 var onPopUpPress = function (evt) {
   evt.preventDefault();
@@ -63,20 +63,20 @@ var onPopUpPress = function (evt) {
     closePopUp();
   } else if (evt.key === 'Enter') {
     openPopUp();
-    } 
+  }
 };
-//var onPopUpPressEnter = function (evt) {
-  //evt.preventDefault();
-  //if (evt.key === 'Enter') {
-    //openPopUp();
-  //}
-//};
+// var onPopUpPressEnter = function (evt) {
+// evt.preventDefault();
+// if (evt.key === 'Enter') {
+// openPopUp();
+  // }
+// };
 setupOpen.addEventListener('click', function () {
   openPopUp();
 });
 setupClose.addEventListener('click', function () {
   closePopUp();
-})
+});
 setupOpen.addEventListener('keydown', function () {
   if (evt.key === 'Enter') {
     openPopUp();
@@ -86,42 +86,46 @@ setupClose.addEventListener('keydown', function () {
   if (evt.key === 'Escape') {
     closePopUp();
   }
-})
+});
 userIcon.addEventListener('click', function () {
   openPopUp();
 });
-//отправляет форму
-//var FormSending = function (evt) {
- //if (evt.key === 'Enter') || (btnSend.addEventListener('click')) {
-  //form.submit();
- //}
-//}
-var FormSending = function (evt) {
- if (evt.key === 'Enter') {
-  form.submit();
- }
-}
-
-//возвращает рандомный элемент массива
+// отправляет форму
+// var FormSending = function (evt) {
+// if (evt.key === 'Enter') || (btnSend.addEventListener('click')) {
+// form.submit();
+// }
+// }
+var formSending = function (evt) {
+  if (evt.key === 'Enter') {
+    form.submit();
+  }
+};
+formSending();
+// возвращает рандомный элемент массива
 var getRandomColor = function (arr) {
- var coatColor = Math.floor(Math.random() * arr.length);
- return coatColor;
-}
-//заполнение цветом элементов
+  var coatColor = Math.floor(Math.random() * arr.length);
+  return coatColor;
+};
+// заполнение цветом элементов
 var fillCoatWithColor = function () {
   var color = getRandomColor(EYES_COLORS);
   blockForCoat.querySelector('.wizard-coat').style.fill = color;
   coatsColorValue.value = color;
 
-}
+};
 var fillEyesWithColor = function () {
   var color = getRandomColor(EYES_COLORS);
   setupPlayer.querySelector('.wizard-eyes').style.fill = color;
   eyesColorValue.value = color;
-}
+};
 var fillFireBallWithColor = function () {
   var color = getRandomColor(FIREBALL_COLORS);
   setupPlayer.querySelector('.setup-fireball').style.fill = color;
   fireBallColorValue.value = color;
-}
+};
+fillFireBallWithColor();
+fillEyesWithColor();
+fillCoatWithColor();
+
 
