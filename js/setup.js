@@ -47,6 +47,7 @@ var fireBallColorValue = document.querySelector('fireball-color-input');
 var coatsColorValue = document.querySelector('coats-color-input');
 var eyesColorValue = document.querySelector('eyes-color-input');
 var setupPlayer = document.querySelector('setup-player');
+var btnSubmit = document.querySelector('.setup-submit');
 var onPopUpPress = function (evt) {
   evt.preventDefault();
   if (evt.key === 'Escape') {
@@ -85,20 +86,9 @@ setupClose.addEventListener('keydown', function (evt) {
 userIcon.addEventListener('click', function () {
   openPopUp();
 });
-// var onPopUpPressEnter = function (evt) {
-// evt.preventDefault();
-// if (evt.key === 'Enter') {
-// openPopUp();
-// }
-// };
 // отправляет форму
-// var FormSending = function (evt) {
-// if (evt.key === 'Enter') || (btnSend.addEventListener('click')) {
-// form.submit();
-// }
-// }
 var formSending = function (evt) {
-  if (evt.key === 'Enter') {
+  if ((evt.key === 'Enter')&&(btnSubmit('focus'))) {
     form.submit();
   }
 };
