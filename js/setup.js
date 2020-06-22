@@ -88,7 +88,7 @@ userIcon.addEventListener('click', function () {
 // evt.preventDefault();
 // if (evt.key === 'Enter') {
 // openPopUp();
-  // }
+// }
 // };
 // отправляет форму
 // var FormSending = function (evt) {
