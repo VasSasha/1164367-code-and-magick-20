@@ -91,11 +91,17 @@ userIcon.addEventListener('click', function () {
   openPopUp();
 });
 //отправляет форму
+//var FormSending = function (evt) {
+ //if (evt.key === 'Enter') || (btnSend.addEventListener('click')) {
+  //form.submit();
+ //}
+//}
 var FormSending = function (evt) {
- if (evt.key === 'Enter') || (btnSend.addEventListener('click')) {
+ if (evt.key === 'Enter') {
   form.submit();
  }
 }
+
 //возвращает рандомный элемент массива
 var getRandomColor = function (arr) {
  var coatColor = Math.floor(Math.random() * arr.length);
