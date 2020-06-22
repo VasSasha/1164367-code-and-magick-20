@@ -62,14 +62,15 @@
 
   <div class="demo"></div>
 
-  <div class="setup-open">
-    <img src="./img/user-1.jpg" class="setup-open-icon">
+  <div class="setup-open" tabindex="0">
+    <img src="./img/user-1.jpg" class="setup-open-icon" tabindex="0">
   </div>
 </header>
 
 <div class="overlay setup hidden">
   <form class="setup-wizard-form"
         method="post"
+        action="https://javascript.pages.academy/code-and-magick" 
         enctype="multipart/form-data"
         autocomplete="off">
 
@@ -82,7 +83,7 @@
         <label>
           <input type="text" name="username"
                  maxlength="25" required
-                 class="setup-user-name" value="Синий Пендальф"/>
+                 class="setup-user-name" value="Синий Пендальф" minlength="2" maxlength="25"/>
         </label>
       </div>
 
@@ -115,13 +116,13 @@
             </g>
           </svg>
         </div>
-        <input type="hidden" name="coat-color" value="rgb(101, 137, 164)">
-        <input type="hidden" name="eyes-color" value="black">
+        <input type="hidden" name="coat-color" value="rgb(101, 137, 164)" class="coats-color-input">
+        <input type="hidden" name="eyes-color" value="black" class="eyes-color-input">
       </div>
 
       <div class="setup-fireball-wrap">
         <div class="setup-fireball"></div>
-        <input type="hidden" name="fireball-color" value="#ee4830">
+        <input type="hidden" name="fireball-color" value="#ee4830" class="fireball-color-input">
       </div>
 
       <div class="setup-artifacts" dropzone="move">
