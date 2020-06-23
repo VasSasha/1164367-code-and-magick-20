@@ -77,6 +77,9 @@ var closePopUp = function () {
   wizardCoat.removeEventListener('click', fillCoatWithColor);
   wizardEyes.removeEventListener('click', fillEyesWithColor);
   fireBall.removeEventListener('click', fillFireBallWithColor);
+  btnSubmit.removeEventListener('click', function () {
+    form.submit();
+  });
 };
 setupOpen.addEventListener('click', function () {
   openPopUp();
