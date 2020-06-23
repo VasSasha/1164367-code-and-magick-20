@@ -118,6 +118,6 @@ var fillFireBallWithColor = function () {
   document.querySelector('.setup-fireball').style.fill = color;
   fireBallColorValue.value = color;
 };
-wizardCoat.addEventListener('click', fillFireBallWithColor);
+wizardCoat.addEventListener('click', fillCoatWithColor);
 wizardEyes.addEventListener('click', fillEyesWithColor);
-fireBall.addEventListener('click', fillCoatWithColor);
+fireBall.addEventListener('click', fillFireBallWithColor);
