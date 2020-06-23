@@ -38,8 +38,7 @@ var renderPlayers = function () {
   similarListElement.appendChild(fragment);
 };
 renderPlayers();
-var setupSimilar = document.querySelector('.setup-similar');
-setupSimilar.classList.remove('hidden');
+setup.classList.add('hidden');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
 var userIcon = document.querySelector('.setup-open-icon');
@@ -53,35 +52,31 @@ var wizardEyes = document.querySelector('.wizard-eyes');
 var fireBall = document.querySelector('.setup-fireball-wrap');
 var userName = document.querySelector('.setup-user-name');
 var onPopUpPress = function (evt) {
-  evt.preventDefault();
-  if (evt.key === 'Escape') {
+  if ((evt.key === 'Escape') && (userName !== document.activeElement)) {
     closePopUp();
-  } else if (evt.key === 'Enter') {
-    openPopUp();
+  } else if ((evt.key === 'Enter') && (setupClose === document.activeElement)) {
+    closePopUp();
   }
 };
+var sendForm = function () {
+  form.submit();
+}
 // открывает и закрывает диалоговое окно
 var openPopUp = function () {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopUpPress);
-  document.addEventListener('click', onPopUpPress);
   wizardCoat.addEventListener('click', fillCoatWithColor);
   wizardEyes.addEventListener('click', fillEyesWithColor);
   fireBall.addEventListener('click', fillFireBallWithColor);
-  btnSubmit.addEventListener('click', function () {
-    form.submit();
-  });
+  btnSubmit.addEventListener('click', sendForm);
 };
 var closePopUp = function () {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onPopUpPress);
-  document.removeEventListener('click', onPopUpPress);
   wizardCoat.removeEventListener('click', fillCoatWithColor);
   wizardEyes.removeEventListener('click', fillEyesWithColor);
   fireBall.removeEventListener('click', fillFireBallWithColor);
-  btnSubmit.removeEventListener('click', function () {
-    form.submit();
-  });
+  btnSubmit.removeEventListener('click', sendForm);
 };
 setupOpen.addEventListener('click', function () {
   openPopUp();
@@ -126,10 +121,12 @@ var fillFireBallWithColor = function () {
 };
 userName.addEventListener('input', function (evt) {
   var valueLength = userName.value.length;
-  if (valueLength < MIN_LENGTH) {
+  if (valueLength < validity.tooShort) {
     userName.setCustomValidity('Имя должно состоять минимум из 2-х символов');
-  } else if (valueLength > MAX_LENGTH) {
+    userName.reportValidity();
+  } else if (valueLength > validity.tooLong) {
     userName.setCustomValidity('Имя должно состоять максимум из 25 символов');
+    userName.reportValidity();
   } else {
     userName.setCustomValidity('');
   }
