@@ -111,15 +111,13 @@ var onFireballClick = function () {
   fireBallColorValue.value = color;
 };
 userName.addEventListener('input', function () {
-  var valueLength = userName.value.length;
-  if (valueLength < userName.validity.tooShort) {
+  if (userName.validity.tooShort) {
     userName.setCustomValidity('Имя должно состоять минимум из 2-х символов');
     userName.reportValidity();
-  } else if (valueLength > userName.validity.tooLong) {
+  } else if (userName.validity.tooLong) {
     userName.setCustomValidity('Имя должно состоять максимум из 25 символов');
     userName.reportValidity();
   } else {
     userName.setCustomValidity('');
-    userName.reportValidity();
   }
 });
