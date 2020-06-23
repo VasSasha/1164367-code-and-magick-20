@@ -90,12 +90,6 @@ setupClose.addEventListener('keydown', function (evt) {
 userIcon.addEventListener('click', function () {
   openPopUp();
 });
-// отправляет форму
-var formSending = function () {
-  if ((btnSubmit === document.activeElement) && document.addEventListener('keypressed' === 'Enter')) {
-    form.submit();
-  }
-};
 formSending();
 // возвращает рандомный элемент массива
 var getRandomColor = function (arr) {
