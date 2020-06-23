@@ -57,7 +57,9 @@ var onPopUpPress = function (evt) {
   }
 };
 var onSubmitClick = function () {
-  form.submit();
+  if (userName.checkValidity()) {
+   form.submit();
+  }
 };
 // открывает и закрывает диалоговое окно
 var openPopUp = function () {
