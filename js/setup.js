@@ -38,15 +38,15 @@ var renderPlayers = function () {
 renderPlayers();
 var setupSimilar = document.querySelector('.setup-similar');
 setupSimilar.classList.remove('hidden');
-var setupOpen = setup.querySelector('.setup-open');
-var setupClose = setup.querySelector('.setup-close');
+var setupOpen = document.querySelector('.setup-open');
+var setupClose = document.querySelector('.setup-close');
 var userIcon = document.querySelector('.setup-open-icon');
 var form = setup.querySelector('.setup-wizard-form');
 var blockForCoat = document.querySelector('.setup-wizard');
-var fireBallColorValue = document.querySelector('fireball-color-input');
-var coatsColorValue = document.querySelector('coats-color-input');
-var eyesColorValue = document.querySelector('eyes-color-input');
-var setupPlayer = document.querySelector('setup-player');
+var fireBallColorValue = document.querySelector('.fireball-color-input');
+var coatsColorValue = document.querySelector('.coats-color-input');
+var eyesColorValue = document.querySelector('.eyes-color-input');
+var setupPlayer = document.querySelector('.setup-player');
 var btnSubmit = document.querySelector('.setup-submit');
 var onPopUpPress = function (evt) {
   evt.preventDefault();
@@ -87,32 +87,32 @@ userIcon.addEventListener('click', function () {
   openPopUp();
 });
 // отправляет форму
-var formSending = function (evt) {
-  if ((evt.key === 'Enter')&&(btnSubmit('focus'))) {
+var formSending = function () {
+  if ((btnSubmit === document.activeElement) && document.addEventListener('keypressed' === 'Enter')) {
     form.submit();
   }
 };
 formSending();
 // возвращает рандомный элемент массива
 var getRandomColor = function (arr) {
-  var coatColor = Math.floor(Math.random() * arr.length);
-  return coatColor;
+  var color = Math.floor(Math.random() * arr.length);
+  return arr[color];
 };
 // заполнение цветом элементов
 var fillEyesWithColor = function () {
   var color = getRandomColor(EYES_COLORS);
-  setupPlayer.querySelector('.wizard-eyes').style.fill = color;
+  document.querySelector('.wizard-eyes').style.fill = color;
   eyesColorValue.value = color;
 };
 var fillCoatWithColor = function () {
   var color = getRandomColor(EYES_COLORS);
-  blockForCoat.querySelector('.wizard-coat').style.fill = color;
+  document.querySelector('.wizard-coat').style.fill = color;
   coatsColorValue.value = color;
 
 };
 var fillFireBallWithColor = function () {
   var color = getRandomColor(FIREBALL_COLORS);
-  setupPlayer.querySelector('.setup-fireball').style.fill = color;
+  document.querySelector('.setup-fireball').style.fill = color;
   fireBallColorValue.value = color;
 };
 fillFireBallWithColor();
