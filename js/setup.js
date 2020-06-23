@@ -48,6 +48,9 @@ var coatsColorValue = document.querySelector('.coats-color-input');
 var eyesColorValue = document.querySelector('.eyes-color-input');
 var setupPlayer = document.querySelector('.setup-player');
 var btnSubmit = document.querySelector('.setup-submit');
+var wizardCoat = document.querySelector('.wizard-coat');
+var wizardEyes = document.querySelector('.wizard-eyes');
+var fireBall = document.querySelector('.setup-fireball-wrap');
 var onPopUpPress = function (evt) {
   evt.preventDefault();
   if (evt.key === 'Escape') {
@@ -115,6 +118,6 @@ var fillFireBallWithColor = function () {
   document.querySelector('.setup-fireball').style.fill = color;
   fireBallColorValue.value = color;
 };
-fillFireBallWithColor();
-fillEyesWithColor();
-fillCoatWithColor();
+wizardCoat.addEventListener('click', fillFireBallWithColor);
+wizardEyes.addEventListener('click', fillEyesWithColor);
+fireBall.addEventListener('click', fillCoatWithColor);
