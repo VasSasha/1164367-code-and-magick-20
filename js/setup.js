@@ -4,6 +4,8 @@ var SECOND_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Ва
 var COATS_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var MAX_LENGTH = 25;
+var MIN_LENGTH = 2;
 var setup = document.querySelector('.setup');
 setup.classList.remove('hidden');
 var getRandomElement = function (arr) {
@@ -122,14 +124,13 @@ var fillFireBallWithColor = function () {
   document.querySelector('.setup-fireball-wrap').style.background = color;
   fireBallColorValue.value = color;
 };
-userName.addEventListener('invalid', function (evt) {
-  if (userName.validity.tooShort) {
-    userName.setCustonValidity('Имя должно состоять минимум из 2-х символов');
-  } else if (userName.validity.tooLong) {
-    userName.setCustonValidity('Имя должно состоять максимум из 25 символов');
-  } else if (userName.validity.valueMissing) {
-    userName.setCustonValidity('Обязательное поле');
+userName.addEventListener('input', function (evt) {
+  var valueLength = userName.value.length;
+  if (valueLength < MIN_LENGTH) {
+    userName.setCustomValidity('Имя должно состоять минимум из 2-х символов');
+  } else if (valueLength > MAX_LENGTH) {
+    userName.setCustomValidity('Имя должно состоять максимум из 25 символов');
   } else {
-    userName.setCustonValidity('');
+    userName.setCustomValidity('');
   }
 });
