@@ -63,10 +63,10 @@ var onSubmitClick = function () {
 var openPopUp = function () {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopUpPress);
-  wizardCoat.addEventListener('click', fillCoatWithColor);
-  wizardEyes.addEventListener('click', fillEyesWithColor);
-  fireBall.addEventListener('click', fillFireBallWithColor);
-  btnSubmit.addEventListener('click', sendForm);
+  wizardCoat.addEventListener('click', onCoatClick);
+  wizardEyes.addEventListener('click', onEyesClick);
+  fireBall.addEventListener('click', onFireballClick);
+  btnSubmit.addEventListener('click', onSubmitClick);
 };
 var closePopUp = function () {
   setup.classList.add('hidden');
@@ -86,7 +86,7 @@ var onIconPress = function (evt) {
   if (evt.key === 'Enter') {
     openPopUp();
   }
-}
+};
 userIcon.addEventListener('keydown', onIconPress);
 // возвращает рандомный элемент массива
 var getRandomColor = function (arr) {
@@ -110,7 +110,7 @@ var onFireballClick = function () {
   document.querySelector('.setup-fireball-wrap').style.background = color;
   fireBallColorValue.value = color;
 };
-userName.addEventListener('input', function (evt) {
+userName.addEventListener('input', function () {
   var valueLength = userName.value.length;
   if (valueLength < userName.validity.tooShort) {
     userName.setCustomValidity('Имя должно состоять минимум из 2-х символов');
@@ -120,5 +120,6 @@ userName.addEventListener('input', function (evt) {
     userName.reportValidity();
   } else {
     userName.setCustomValidity('');
+    userName.reportValidity();
   }
 });
