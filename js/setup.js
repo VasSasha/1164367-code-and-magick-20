@@ -82,9 +82,12 @@ setupOpen.addEventListener('click', function () {
 setupClose.addEventListener('click', function () {
   closePopUp();
 });
-userIcon.addEventListener('click', function () {
-  openPopUp();
-});
+var onIconPress = function (evt) {
+  if (evt.key === 'Enter') {
+    openPopUp();
+  }
+}
+userIcon.addEventListener('keydown', onIconPress);
 // возвращает рандомный элемент массива
 var getRandomColor = function (arr) {
   var color = Math.floor(Math.random() * arr.length);
